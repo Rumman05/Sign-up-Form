@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            overflow: hidden; /* Prevent body overflow */
+        }
+
+        @font-face {
+            font-family: 'Norse Bold';
+            src: url('Norse-Bold.otf');
+        }
+
+        .Left-side {
+            width: 40%;
+            height: 100vh;
+            position: relative;
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        .Background-image-container {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .credits {
+            position: absolute;
+            color: white;
+            bottom: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+
+        .leaf {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+        }
+
+        #Odin-overlay {
+            position: absolute;
+            top: 20%;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .overlay-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .Odin-Logo {
+            width: 18%;
+        }
+
+        .Title {
+            color: white;
+            text-align: center;
+            margin: 0;
+            margin-left: 10px;
+            font-family: 'Norse Bold';
+            font-size: 110px;
+        }
+
+        .banner-contents {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #Right-side {
+            width: 60%;
+            height: 100vh;
+            background: #f9fafb;
+            overflow-y: auto; /* Allow scrolling if content is too tall */
+            box-sizing: border-box; /* Include padding in width calculation */
+        }
+
+        #Right-side-hero {
+            width: 100%;
+            padding-top: 150px;
+            padding-left: 60px;
+            padding-right: 60px; /* Add right padding */
+            box-sizing: border-box;
+        }
+
+        .Hero-Section {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            width: 100%; /* Changed from 73% to 100% */
+            max-width: 630px; /* Add max-width for better control */
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .Hero-text-sign-up {
+            margin-top: 5px;
+        }
+
+        .Hero-text-temptation {
+            margin-top: 30px;
+        }
+
+        .Right-side-sign-up-container {
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+            border-radius: 2px;
+            margin-top: 50px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .Lets-do-this {
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            margin-bottom: 20px;
+            margin-left: 30px;
+        }
+
+        label {
+            display: block;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin-bottom: 5px;
+            margin-top: 10px;
+            margin-left: 30px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        input {
+            border-radius: 4px;
+            width: 100%; 
+            max-width: 250px; 
+            margin-left: 30px;
+            padding: 8px; 
+            border: 1.5px solid #E5E7EB;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            outline: none;
+            border: 1.5px solid rgba(0, 0, 255, 0.3);
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+        }
+
+        #password:invalid, #confirm_password:invalid {
+            border: 1.5px solid rgb(195, 2, 2);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: repeat(3, 1fr);
+            column-gap: 40px; 
+            row-gap: 10px;
+            margin-top: 20px;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .create-account-btn {
+            background-color: #596D48;
+            width: 225px;
+            height: 50px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            margin-block: 35px;
+            margin-inline: 50px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            border: none;
+        }
+
+        #log-in {
+            margin-left: 50px;
+            font-size: 16px;
+            font-weight: 500;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .login {
+            color: #596D48;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="Left-side">
+        <div class="Background-image-container">
+            <p class="credits">Photo by <span class="underline">Halie West</span> on <span class="underline">Unsplash</span></p>
+            <img class="leaf" src="Background.png" alt="Background Image">
+        </div>
+
+        <div id="Odin-overlay">
+            <div class="overlay-background"></div>
+            <div class="banner-contents">
+                <img class="Odin-Logo" src="Logo.png" alt="Odin Logo">
+                <p class="Title">ODIN</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="Right-side">
+        <div id="Right-side-hero">
+            <div class="Hero-Section">
+                <div class="Hero-text">This is not a real online service! You know you need something like this in your life to help you relaize your deepest dreams.</div>
+                <div class="Hero-text-sign-up">Sign up <em>now</em> to get started.</div>
+                <div class="Hero-text-temptation">You <em>know you</em> want to.</div>
+             </div>
+        </div>
+        <div class="Right-side-sign-up-container">
+            <div class="Lets-do-this">Let's do this!</div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="first_name">FIRST NAME</label>
+                    <input type="text" id="first_name" name="first_name">
+                </div> 
+                <div class="form-group">
+                    <label for="last_name">LAST NAME</label>
+                    <input type="text" id="last_name" name="last_name">
+                </div>
+                <div class="form-group">
+                    <label for="email">EMAIL</label>
+                    <input type="email" id="email" name="email">
+                </div> 
+                <div class="form-group">
+                    <label for="phone-number">PHONE NUMBER</label>
+                    <input type="text" id="phone_number" name="phone_number">
+                </div> 
+                <div class="form-group">
+                    <label for="password">PASSWORD</label>
+                    <input type="password" id="password" name="password" required minlength="8">
+                </div> 
+                <div class="form-group">
+                    <label for="confirm_password">CONFIRM PASSWORD</label>
+                    <input type="password" id="confirm_password" name="confirm_password" required>
+                </div>  
+            </div>
+        </div>
+         <button type="submit" class="create-account-btn">Create Account</button>
+
+         <div id="log-in">
+            <div class="question">Already have an account? <span class="login">Log in</span></div>
+         </div>
+    </div>
+
+</body>
+</html>
