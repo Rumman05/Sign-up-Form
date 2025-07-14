@@ -6,121 +6,137 @@
     <title>Document</title>
     <style>
 
+        /* Basic body styling */
         body {
             margin: 0;
             padding: 0;
-            height: 100vh;
-            display: flex;
-            overflow: hidden; /* Prevent body overflow */
+            height: 100vh; /* Full viewport height */
+            display: flex; /* Use flexbox for layout */
+            overflow: hidden; /* Prevent body from overflowing */
         }
 
+        /* Custom font face definition */
         @font-face {
             font-family: 'Norse Bold';
             src: url('Norse-Bold.otf');
         }
 
+        /* Styling for the left side container */
         .Left-side {
             width: 40%;
             height: 100vh;
-            position: relative;
-            flex-shrink: 0; /* Prevent shrinking */
+            position: relative; /* For positioning child elements */
+            flex-shrink: 0; /* Prevent this container from shrinking */
         }
 
+        /* Container for the background image */
         .Background-image-container {
             width: 100%;
             height: 100vh;
         }
 
+        /* Styling for the photo credits text */
         .credits {
-            position: absolute;
+            position: absolute; /* Position relative to the .Left-side container */
             color: white;
             bottom: 0px;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translateX(-50%); /* Center horizontally */
             text-align: center;
             font-size: 15px;
         }
 
+        /* Simple class to underline text */
         .underline {
             text-decoration: underline;
         }
 
+        /* Styling for the background leaf image */
         .leaf {
             width: 100%;
             height: 100vh;
-            object-fit: cover;
+            object-fit: cover; /* Ensure the image covers the container */
         }
 
+        /* Styling for the Odin banner overlay */
         #Odin-overlay {
-            position: absolute;
+            position: absolute; /* Position relative to the .Left-side container */
             top: 20%;
             left: 0;
             width: 100%;
             overflow: hidden;
         }
 
+        /* Semi-transparent background for the banner */
         .overlay-background {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100vh;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
+            z-index: 1; /* Place it below the banner content */
         }
 
+        /* Styling for the Odin logo image */
         .Odin-Logo {
             width: 18%;
         }
 
+        /* Styling for the "ODIN" title text */
         .Title {
             color: white;
             text-align: center;
             margin: 0;
             margin-left: 10px;
-            font-family: 'Norse Bold';
+            font-family: 'Norse Bold'; /* Custom font */
             font-size: 110px;
         }
 
+        /* Container for the banner logo and title */
         .banner-contents {
             position: relative;
-            z-index: 2;
+            z-index: 2; /* Place it above the overlay background */
             display: flex;
             flex-direction: row;
-            align-items: center;
-            justify-content: center;
+            align-items: center; /* Center items vertically */
+            justify-content: center; /* Center items horizontally */
             padding: 10px;
             width: 100%;
             box-sizing: border-box;
         }
 
+        /* Styling for the right side container */
         #Right-side {
             width: 60%;
             height: 100vh;
             background: #f9fafb;
-            overflow-y: auto; /* Allow scrolling if content is too tall */
-            box-sizing: border-box; /* Include padding in width calculation */
+            overflow-y: auto; /* Allow vertical scrolling if content overflows */
+            box-sizing: border-box;
         }
 
+        /* Hero section container on the right side */
         #Right-side-hero {
             width: 100%;
             padding-top: 150px;
             padding-left: 60px;
-            padding-right: 60px; /* Add right padding */
+            padding-right: 60px;
             box-sizing: border-box;
         }
 
+        /* Flex container for the hero text */
         .Hero-Section {
             display: flex;
             flex-direction: column;
             gap: 5px;
-            width: 100%; /* Changed from 73% to 100% */
-            max-width: 630px; /* Add max-width for better control */
+            width: 100%;
+            max-width: 630px; /* Set a max-width for readability */
             font-family: Arial, Helvetica, sans-serif;
             font-weight: bold;
             font-size: 20px;
         }
 
+        /* Margin for specific hero text elements */
         .Hero-text-sign-up {
             margin-top: 5px;
         }
@@ -129,15 +145,17 @@
             margin-top: 30px;
         }
 
+        /* Container for the sign-up form */
         .Right-side-sign-up-container {
             background-color: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25); /* Drop shadow effect */
             border-radius: 2px;
             margin-top: 50px;
             padding: 20px;
             box-sizing: border-box;
         }
 
+        /* Styling for the "Let's do this!" heading */
         .Lets-do-this {
             font-size: 20px;
             font-family: Arial, Helvetica, sans-serif;
@@ -146,8 +164,9 @@
             margin-left: 30px;
         }
 
+        /* General styling for form labels */
         label {
-            display: block;
+            display: block; /* Make labels take up the full width */
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             margin-bottom: 5px;
             margin-top: 10px;
@@ -156,42 +175,48 @@
             font-size: 14px;
         }
 
+        /* General styling for form inputs */
         input {
             border-radius: 4px;
-            width: 100%; 
-            max-width: 250px; 
+            width: 100%;
+            max-width: 300px;
             margin-left: 30px;
-            padding: 8px; 
+            padding: 8px;
             border: 1.5px solid #E5E7EB;
             font-size: 16px;
             box-sizing: border-box;
         }
 
+        /* Style for inputs when they are in focus */
         input:focus {
-            outline: none;
-            border: 1.5px solid rgba(0, 0, 255, 0.3);
-            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+            outline: none; /* Remove default outline */
+            border: 1.5px solid rgba(0, 0, 255, 0.3); /* Blue border */
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3); /* Blue shadow */
         }
 
+        /* Style for password inputs when they are invalid */
         #password:invalid, #confirm_password:invalid {
-            border: 1.5px solid rgb(195, 2, 2);
+            border: 1.5px solid rgb(255, 0, 0); /* Red border for invalid input */
         }
 
+        /* Grid layout for the form */
         .form-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: repeat(3, 1fr);
-            column-gap: 40px; 
+            grid-template-columns: 330px 330px; /* Two equal columns */
+            grid-template-rows: repeat(3, 1fr); /* Three equal rows */
+            column-gap: 20px;
             row-gap: 10px;
             margin-top: 20px;
             padding-bottom: 10px;
         }
 
+        /* Flex container for a label and its input */
         .form-group {
             display: flex;
             flex-direction: column;
         }
 
+        /* Styling for the "Create Account" button */
         .create-account-btn {
             background-color: #596D48;
             width: 225px;
@@ -206,6 +231,7 @@
             border: none;
         }
 
+        /* Container for the "Already have an account?" text */
         #log-in {
             margin-left: 50px;
             font-size: 16px;
@@ -213,6 +239,7 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
+        /* Styling for the "Log in" link text */
         .login {
             color: #596D48;
         }
@@ -220,13 +247,14 @@
     </style>
 </head>
 <body>
-    
+    <!--Leaf Background Section-->
     <div class="Left-side">
         <div class="Background-image-container">
             <p class="credits">Photo by <span class="underline">Halie West</span> on <span class="underline">Unsplash</span></p>
             <img class="leaf" src="Background.png" alt="Background Image">
         </div>
 
+        <!--Odin Logo and Title-->
         <div id="Odin-overlay">
             <div class="overlay-background"></div>
             <div class="banner-contents">
@@ -236,14 +264,17 @@
         </div>
     </div>
 
+    <!--Entire Right Side of Page-->
     <div id="Right-side">
         <div id="Right-side-hero">
+            <!--Hero Section-->
             <div class="Hero-Section">
                 <div class="Hero-text">This is not a real online service! You know you need something like this in your life to help you relaize your deepest dreams.</div>
                 <div class="Hero-text-sign-up">Sign up <em>now</em> to get started.</div>
                 <div class="Hero-text-temptation">You <em>know you</em> want to.</div>
              </div>
         </div>
+        <!--Inputs Form-->
         <div class="Right-side-sign-up-container">
             <div class="Lets-do-this">Let's do this!</div>
             <div class="form-grid">
@@ -273,8 +304,10 @@
                 </div>  
             </div>
         </div>
+        <!--Create Account Button-->
          <button type="submit" class="create-account-btn">Create Account</button>
-
+        
+         <!--Already Logged In Text-->
          <div id="log-in">
             <div class="question">Already have an account? <span class="login">Log in</span></div>
          </div>
